@@ -1,7 +1,7 @@
 # SLAM Project
 
 本项目实现了一个基础的 **Simultaneous Localization and Mapping (SLAM)** 系统，包括前端特征提取、后端优化以及地图构建。
-![SLAM Demo](./assets/demo1.gif)
+![SLAM Demo](./demo1.gif)
 
 ## 功能特性
 - [x] 前端：特征提取与匹配（ORB/SIFT 可选）
