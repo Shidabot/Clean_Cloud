@@ -1,44 +1,63 @@
-<div align="center">
-  <h1>NVMS-SLAM</h1>
-  <h2>a normal vector-based multi-session LiDAR SLAM system tailored for indoor environments</h2>
-<!--   <p><strong>Official implementation of our paper in <i>IEEE Transactions on Intelligent Vehicles (T-IV), 2024</i></strong></p>
-  <br>
-  <a href="https://arxiv.org/pdf/2503.19506v1"><img src="https://img.shields.io/badge/arXiv-2503.19506-b31b1b.svg" alt="arXiv"></a>
-  <a href="https://github.com/lian-yue0515/MM-LINS"><img src="https://img.shields.io/badge/GitHub-Code-blue.svg" alt="GitHub"></a>
-  <a href="https://www.bilibili.com/video/BV1eC4y1Z7qk/"><img src="https://img.shields.io/badge/Bilibili-Video-00A1D6.svg" alt="Bilibili"></a>
-  <a href="https://youtu.be/F3Tsls_ypUU"><img src="https://img.shields.io/badge/YouTube-Video-ff0000.svg" alt="YouTube"></a> -->
-</div>
+# Clean and Consistent MLS Point Clouds from the Start: Dynamic Removal Coupled with LIDAR-Inertial Odometry for Urban Scene
+
+## 1.Introduction
+
+This repository provides the implementation of our **dynamic-object-removal LiDAR–IMU odometry framework**, which improves pose estimation and mapping accuracy in dynamic urban environments.  
+The system is model-driven, voxel-free, and supports seamless integration with state-of-the-art LIO frameworks.
+
+
+<p align="center">
+  <img src="demo1.gif" alt="Demo Example 1" width="45%" />
+  <img src="docs/demo2.gif" alt="Demo Example 2" width="45%" />
+</p>
+
+> 🚀 The source code will be released once our paper is accepted. Please stay tuned!
+
+---
+
+### **1.1 Related paper**
+
+Our related papers has been submitted to "xx  Journal".
+The code will be published once the paper is accepted.
+
+### **1.2 Related video**
+
+Our accompanying videos are now available on **YouTube** (click below images to open) and [**Bilibili**](https://www.bilibili.com/video/123).
 
 <div align="center">
-  <img src="IMAGE/motivations.png" width="70%">
-</div>
-<div align="center">
-  <img src="IMAGE/partitioning.png" width="70%"> 
+<a href="https://www.youtube.com/123" target="_blank"><img src="img/cover.bmp" alt="video" width="60%" /></a>
 </div>
 
-## Abstract
-Multi-session SLAM is essential for long-term robotic operations in indoor environments such as warehouses and office buildings. However, the thin walls separating enclosed spaces in such environments introduce a challenge known as the double-sided issue, where point clouds from opposite sides are mistakenly associated as a single surface during single-session mapping, and are prone to being grouped into the same voxel during voxelization in multi-session map fusion, leading to poor voxel planarity, which causes voxel invalidation and reduces the available constraints for global optimization. To address this, we propose NVMS-SLAM, a normal vector-based multi-session LiDAR SLAM system tailored for indoor environments. For single-session mapping, an extended voxel map is designed to preserve normal vector information and to distinguish between visible and non-visible surfaces, thereby improving data association. At the multi-session level, a density-encoded indoor scan-context descriptor is introduced for robust loop closure. In addition, a two-stage global map fusion strategy is adopted, combining joint pose graph optimization and normal vector-based bundle adjustment to ensure globally consistent mapping. Experiments on simulated datasets and real-world environments demonstrate that NVMS-SLAM can effectively resolve the double-sided issue at both the single-session and multi-session stages.
 
-**Contributors**: [Yongxin Ma](https://github.com/lian-yue0515), [Chengwei Zhao](https://github.com/chengwei0427), [Jie Xu](https://github.com/jiejie567), Yixuan Li, Xuanxuan Zhang, Shenghai Yuan,  Lihua Xie 
 
-## 1. Prerequisites
-### 1.1 Ubuntu and ROS
 
-Ubuntu >= 18.04.
 
-ROS >= Melodic. [ROS](http://wiki.ros.org/ROS/Installation)
+## 2. Prerequisites
 
-### 1.2 PCL && Eigen && gtsam
+### 2.1 **Ubuntu** and **ROS**
 
-PCL >= 1.8, Follow [PCL](http://www.pointclouds.org/downloads/linux.html).
+Ubuntu 20.04.
 
-Eigen >= 3.3.4, Follow [EIGEN](http://eigen.tuxfamily.org/index.php?title=Main_Page).
+ROS Noetic. Follow [[ROS Installation](http://wiki.ros.org/ROS/Installation)]
 
-gtsam >= 4.0.0, Follow [gtsam](https://gtsam.org/get_started/).
+### 2.2 **PCL** and **Eigen**
 
-### 1.3 livox_ros_driver
+PCL      ≥ 1.8
+
+`sudo apt install libpcl-dev`
+
+Eigen    ≥ 3.3.4
+
+`sudo apt install libeigen3-dev`
+
+### 2.3 **livox_ros_driver**
 
 Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_driver).
+
+
+### 2.4 TBB
+
+Follow [[TBB Installation](https://solarianprogrammer.com/2019/05/09/cpp-17-stl-parallel-algorithms-gcc-intel-tbb-linux-macos/)] (**Note:** change the gcc-9.1/g++-9.1 to gcc-9/g++-9)
 
 
 ## 2. Build
