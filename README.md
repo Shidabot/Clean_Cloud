@@ -8,7 +8,6 @@ The system is model-driven, voxel-free, and supports seamless integration with s
 
 <p align="center">
   <img src="demo1.gif" alt="Demo Example 1" width="45%" />
-  <img src="docs/demo2.gif" alt="Demo Example 2" width="45%" />
 </p>
 
 > 🚀 The source code will be released once our paper is accepted. Please stay tuned!
